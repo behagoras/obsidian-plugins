@@ -1,15 +1,18 @@
 {
   "name": "typora_plugin",
   "version": "1.0.0",
-  "main": "index.js",
+  "author": "David Behar Lombrozo",
+  "description": "An Obsidian plugin that inserts two spaces on Enter and one space on Shift+Enter.",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc && webpack",
+    "watch": "tsc --watch"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "obsidian": "^1.7.2",
-    "typescript": "^5.7.3"
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "obsidian": "latest",
+    "typescript": "^4.5.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }

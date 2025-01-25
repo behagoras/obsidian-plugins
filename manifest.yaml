@@ -1,9 +1,0 @@
-{
-  "id": "custom-enter-behavior",
-  "name": "Custom Enter Behavior",
-  "version": "1.0.0",
-  "minAppVersion": "0.15.0",
-  "author": "Tu Nombre",
-  "description": "Modifica el comportamiento de la tecla Enter en Obsidian",
-  "isDesktopOnly": true
-}

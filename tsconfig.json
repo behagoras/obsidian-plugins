@@ -1,22 +1,16 @@
-
 {
-
   "compilerOptions": {
-
-    "target": "ES5",
-
-    "module": "commonjs",
-
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "node",
     "strict": true,
-
     "esModuleInterop": true,
-
-    "skipLibCheck": true,
-
-    "forceConsistentCasingInFileNames": true,
-
-    "lib": ["ES2015"]
-
-  }
-
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
 }
