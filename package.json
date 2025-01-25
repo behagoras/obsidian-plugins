@@ -6,7 +6,9 @@
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc && webpack",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "deploy": "rm -rf ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/typora-like && cp -r dist ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/typora-like",
+    "build:deploy": "npm run build && npm run deploy"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
