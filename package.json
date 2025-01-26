@@ -5,10 +5,9 @@
   "description": "An Obsidian plugin that inserts two spaces on Enter and one space on Shift+Enter.",
   "main": "dist/main.js",
   "scripts": {
-    "build": "tsc && webpack",
-    "watch": "tsc --watch",
-    "deploy": "rm -rf ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/typora-like && cp -r dist ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/typora-like",
-    "build:deploy": "npm run build && npm run deploy"
+    "build:all": "npm run build --prefix style-enters && npm run build --prefix enter-mapping",
+    "move:all": "webpack --config ./webpack.config.js",
+    "deploy:all": "npm run build:all && npm run move:all && rm -rf ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/* && cp -r dist/* ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -20,5 +19,9 @@
     "typescript-eslint": "^8.21.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@codemirror/state": "^6.5.1",
+    "@codemirror/view": "^6.36.2"
   }
 }

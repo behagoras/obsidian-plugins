@@ -7,10 +7,12 @@
     "strict": true,
     "esModuleInterop": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "declaration": true,
     "sourceMap": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": [
+    "main.ts" // Adjust if you have more TS files
+  ]
 }

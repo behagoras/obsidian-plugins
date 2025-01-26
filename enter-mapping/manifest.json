@@ -1,0 +1,11 @@
+{
+  "id": "enter-mapping",
+  "name": "Enter Mapping",
+  "version": "1.0.0",
+  "minAppVersion": "0.12.0",
+  "description": "An Obsidian plugin that maps the enter key to a custom keybinding.",
+  "author": "David Behar Lombrozo",
+  "authorUrl": "https://github.com/behagoras",
+  "isDesktopOnly": false,
+  "main": "dist/main.js"
+}

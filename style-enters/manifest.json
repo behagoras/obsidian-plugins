@@ -1,0 +1,11 @@
+{
+  "id": "style-enters",
+  "name": "Style Enters",
+  "version": "1.0.0",
+  "minAppVersion": "0.12.0",
+  "description": "An Obsidian plugin that highlights every other empty line.",
+  "author": "David Behar Lombrozo",
+  "authorUrl": "https://github.com/behagoras",
+  "isDesktopOnly": false,
+  "main": "dist/main.js"
+}

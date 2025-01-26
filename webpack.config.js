@@ -1,26 +1,31 @@
-const path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = {
-  entry: "./dist/main.js", // The compiled TypeScript output
+// Manually define __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
+export default {
+  mode: 'production',
+  entry: {}, // No need for an entry, we're just copying files
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
-    libraryTarget: "commonjs",
-  },
-  mode: "production",
-  resolve: {
-    extensions: [".js"],
-  },
-  externals: {
-    obsidian: "commonjs obsidian",
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
-        { from: "manifest.json", to: "." }, // Copy manifest.json to dist
-        { from: "styles.css", to: "." }, // If you have custom CSS
+        {
+          from: path.resolve(__dirname, 'enter-mapping/dist'),
+          to: path.resolve(__dirname, 'dist/enter-mapping'),
+        },
+        {
+          from: path.resolve(__dirname, 'style-enters/dist'),
+          to: path.resolve(__dirname, 'dist/style-enters'),
+        },
       ],
     }),
   ],
+  target: 'node', // Required for Obsidian plugins
 };

@@ -1,0 +1,18 @@
+{
+  "name": "enter-mapping",
+  "version": "1.0.0",
+  "author": "David Behar Lombrozo",
+  "description": "An Obsidian plugin that maps the enter key to a custom keybinding.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc && webpack"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.0",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^4.10.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "obsidian": "latest"
+  }
+}
