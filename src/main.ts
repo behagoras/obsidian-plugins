@@ -1,4 +1,4 @@
-import { Plugin } from "obsidian";
+import { MarkdownView, Plugin } from "obsidian";
 
 export default class CustomEnterPlugin extends Plugin {
   // This method is called when the plugin is loaded by Obsidian
@@ -8,29 +8,34 @@ export default class CustomEnterPlugin extends Plugin {
     // Listen for keyboard events in the active editor
     this.registerDomEvent(document, "keydown", (evt: KeyboardEvent) => {
       const activeEditor = this.app.workspace.activeEditor;
+      const isSourceMode = this.isSourceMode();
+      const isEditMode = !isSourceMode;
 
-      // Check if the Enter key is pressed without Shift
-      if (evt.key === "Enter" && !evt.shiftKey) {
-        // Prevent the default Enter behavior
-        evt.preventDefault();
-        if (activeEditor && activeEditor.editor) {
-          // Insert two line breaks
-          activeEditor.editor.replaceSelection("\n");
-        }
-      }
-      // Check if the Enter key is pressed with Shift
-      else if (evt.key === "Enter" && evt.shiftKey) {
-        // Prevent the default Shift+Enter behavior
-        evt.preventDefault();
-        if (activeEditor && activeEditor.editor) {
-          // Insert one line break
-          // activeEditor.editor.replaceSelection("\n");
-        }
+      if (
+        evt.key === "Enter" &&
+        !evt.shiftKey &&
+        activeEditor &&
+        isEditMode &&
+        activeEditor.editor
+      ) {
+        activeEditor.editor.replaceSelection("\n");
       }
     });
 
     this.addCustomStyles();
+  }
 
+  isSourceMode() {
+    const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+
+    if (activeView) {
+      const state = activeView.getState(); // Get the view state
+      const isSourceMode = state?.source === true;
+
+      return !!isSourceMode;
+    }
+
+    return {};
   }
 
   addCustomStyles() {
@@ -51,7 +56,6 @@ export default class CustomEnterPlugin extends Plugin {
     `;
     document.head.appendChild(style);
   }
-
 
   // This method is called when the plugin is unloaded by Obsidian
   onunload(): void {
