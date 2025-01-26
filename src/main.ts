@@ -38,26 +38,19 @@ export default class CustomEnterPlugin extends Plugin {
     return {};
   }
 
-  addCustomStyles() {
+  private addCustomStyles() {
     const style = document.createElement("style");
     style.setAttribute("id", "custom-enter-plugin-style");
     style.innerHTML = `
       /* Apply styles only in reading and live preview modes */
-      .markdown-preview-view p {
-        border: 1px solid blue; /* Border for paragraphs */
-        margin-bottom: 0.8em; /* Spacing for orphaned line */
-      }
-
-      .markdown-preview-view p + p {
-        border: 1px solid red; /* Border for joined lines */
-        margin-top: 0.5em; /* Spacing for joined lines */
-        margin-bottom: 0.5em; /* Spacing for joined lines */
+      .is-live-preview div + .cm-line:has(br):nth-of-type(even):not(.cm-active) {
+          /* border: red 1px solid;*/
+          height: .4em;
       }
     `;
     document.head.appendChild(style);
   }
 
-  // This method is called when the plugin is unloaded by Obsidian
   onunload(): void {
     console.log("Custom Enter Behavior Plugin unloaded");
     const styleElement = document.getElementById("custom-enter-plugin-style");

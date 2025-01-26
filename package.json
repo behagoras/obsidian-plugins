@@ -11,9 +11,13 @@
     "build:deploy": "npm run build && npm run deploy"
   },
   "devDependencies": {
+    "@eslint/js": "^9.19.0",
     "copy-webpack-plugin": "^12.0.2",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
     "obsidian": "latest",
     "typescript": "^4.5.0",
+    "typescript-eslint": "^8.21.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
   }
