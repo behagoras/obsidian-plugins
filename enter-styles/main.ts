@@ -10,13 +10,13 @@ export default class StyleEntersPlugin extends Plugin {
 
   onunload() {
     console.log("Style the Enters Plugin unloaded");
-    const styleElement = document.getElementById("style-enters-plugin-style");
+    const styleElement = document.getElementById("enter-styles-plugin-style");
     if (styleElement) styleElement.remove();
   }
 
   private injectStyles() {
     const style = document.createElement("style");
-    style.id = "style-enters-plugin-style";
+    style.id = "enter-styles-plugin-style";
     style.textContent = `
       .cm-empty-highlight:not(.cm-active) {
         height: 0.6em !important;

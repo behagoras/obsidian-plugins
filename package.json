@@ -5,10 +5,11 @@
   "description": "An Obsidian plugin that inserts two spaces on Enter and one space on Shift+Enter.",
   "main": "dist/main.js",
   "scripts": {
-    "build:all": "npm run build --prefix style-enters && npm run build --prefix enter-mapping",
-    "move:all": "webpack --config ./webpack.config.js",
-    "deploy:all": "npm run build:all && npm run move:all && rm -rf ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/* && cp -r dist/* ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal/.obsidian/plugins/"
-  },
+    "build": "npm run build --prefix enter-styles && npm run build --prefix enter-mapping",
+    "move": "rm -rf dist && mkdir dist && cp -rf ./enter-styles/dist/ ./dist/enter-styles && cp -rf ./enter-mapping/dist/ ./dist/enter-mapping",
+    "deploy": "rm -rf $OUTPUT_DIR/.obsidian/plugins/enter-mapping $OUTPUT_DIR/.obsidian/plugins/enter-mapping && cp -rf ./dist/* $OUTPUT_DIR/.obsidian/plugins/",
+    "build:deploy": "./scripts/build-deploy.sh"
+},
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "copy-webpack-plugin": "^12.0.2",

@@ -21,8 +21,8 @@ export default {
           to: path.resolve(__dirname, 'dist/enter-mapping'),
         },
         {
-          from: path.resolve(__dirname, 'style-enters/dist'),
-          to: path.resolve(__dirname, 'dist/style-enters'),
+          from: path.resolve(__dirname, 'enter-styles/dist'),
+          to: path.resolve(__dirname, 'dist/enter-styles'),
         },
       ],
     }),
